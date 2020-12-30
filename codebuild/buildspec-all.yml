@@ -1,0 +1,29 @@
+version: 0.2
+
+env:
+    variables:
+        SERVICE_RSR_TEST: 'backend/services/rsrTestService'
+
+phases:
+    install:
+        runtime-versions:
+            nodejs: 12
+        commands:
+            - npm install -g serverless@1.61.2
+
+            - cd ${SERVICE_RSR_TEST} && npm ci && cd -
+        finally:
+            - echo Installation finished
+    pre_build:
+        commands:
+            #Compile layers
+            - echo In the pre_build stage. Nothing to do here.
+    build:
+        commands: Auth
+            - cd ${SERVICE_RSR_TEST} && sls deploy --aws-profile prod-aws --config serverless-dev.yml
+    post_build:
+        commands:
+            - echo Nothing to do in post build
+
+        finally:
+            - echo Build finished
