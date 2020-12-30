@@ -19,7 +19,7 @@ phases:
             #Compile layers
             - echo In the pre_build stage. Nothing to do here.
     build:
-        commands: Auth
+        commands:
             - cd ${SERVICE_RSR_TEST} && sls deploy --aws-profile prod-aws --config serverless-dev.yml
     post_build:
         commands:
