@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports.hello = async (event) => {
-    let someNotUsedVarible = 5;
     return {
         statusCode: 200,
         body: JSON.stringify(
