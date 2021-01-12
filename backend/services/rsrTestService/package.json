@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "one-liner-joke": "^1.2.0"
+  },
+  "devDependencies": {
+    "serverless-prune-plugin": "^1.4.3"
   }
 }
